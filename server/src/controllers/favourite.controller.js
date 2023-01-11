@@ -3,12 +3,12 @@ import favouriteModel from "../models/favourite.model.js";
 
 const addFavourite = async (req, res) => {
   try {
-    const isFavorite = await favouriteModel.findOne({
+    const isFavourite = await favouriteModel.findOne({
       user: req.user.id,
       mediaId: req.body.mediaId,
     });
 
-    if (isFavourite) return responseHandler.ok(res, isFavourite);
+    if (isFavourite) return responseHandler.everythingOk(res, isFavourite);
 
     const favourite = new favouriteModel({
       ...req.body,
@@ -48,7 +48,7 @@ const getFavouritesOfUser = async (req, res) => {
       .find({ user: req.user.id })
       .sort("-createdAt");
 
-    responseHandler.ok(res, favourite);
+    responseHandler.everythingOk(res, favourite);
   } catch {
     responseHandler.error(res);
   }

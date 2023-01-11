@@ -16,7 +16,7 @@ const getList = async (req, res) => {
       page,
     });
 
-    return responseHandler.ok(res, response);
+    return responseHandler.everythingOk(res, response);
   } catch {
     responseHandler.error(res);
   }
@@ -28,7 +28,7 @@ const getGenres = async (req, res) => {
 
     const response = await tmdbApi.mediaGenres({ mediaType });
 
-    return responseHandler.ok(res, response);
+    return responseHandler.everythingOk(res, response);
   } catch {
     responseHandler.error(res);
   }
@@ -45,7 +45,7 @@ const search = async (req, res) => {
       mediaType: mediaType === "people" ? "person" : mediaType,
     });
 
-    responseHandler.ok(res, response);
+    responseHandler.everythingOk(res, response);
   } catch {
     responseHandler.error(res);
   }
@@ -90,7 +90,7 @@ const getDetail = async (req, res) => {
       .populate("user")
       .sort("-createdAt");
 
-    responseHandler.ok(res, media);
+    responseHandler.everythingOk(res, media);
   } catch (e) {
     console.log(e);
     responseHandler.error(res);

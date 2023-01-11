@@ -6,6 +6,7 @@ import mongoose from "mongoose";
 import "dotenv/config";
 import colors from "colors";
 const port = process.env.PORT || 3000;
+import routes from "./src/routes/index.js";
 
 // Connect Mongoose
 mongoose.set("strictQuery", false);
@@ -31,6 +32,8 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+app.use("/api/v1", routes);
 
 const server = http.createServer(app);
 

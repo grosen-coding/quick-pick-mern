@@ -18,7 +18,7 @@ const connectDB = async () => {
       `Mongo DB Connected!!: ${connect.connection.host}`.cyan.underline
     );
   } catch (error) {
-    console.log(`Error: ${error.message}`.yellow.underline);
+    console.log(`Error: ${error.message}`.red.underline);
     process.exit(1);
   }
 };
@@ -35,8 +35,10 @@ app.use(cookieParser());
 
 app.use("/api/v1", routes);
 
+// Server
 const server = http.createServer(app);
 
 server.listen(port, () => {
-  console.log(`Server is listening on port ${port}`.yellow.underline);
+  console.log(`Server is listening on port ${port}`.blue);
 });
+// END Server

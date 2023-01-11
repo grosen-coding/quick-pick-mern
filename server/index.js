@@ -5,7 +5,9 @@ import http from "http";
 import mongoose from "mongoose";
 import "dotenv/config";
 import colors from "colors";
+const port = process.env.PORT || 3000;
 
+// Connect Mongoose
 mongoose.set("strictQuery", false);
 
 const connectDB = async () => {
@@ -21,6 +23,7 @@ const connectDB = async () => {
 };
 
 connectDB();
+// END Mongoose
 
 const app = express();
 
@@ -29,6 +32,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-const port = process.env.PORT || 3000;
-
 const server = http.createServer(app);
+
+server.listen(port, () => {
+  console.log(`Server is listening on port ${port}`.yellow.underline);
+});

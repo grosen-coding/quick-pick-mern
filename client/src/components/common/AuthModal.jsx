@@ -32,11 +32,13 @@ const AuthModal = () => {
           position: "absolute",
           top: "50%",
           left: "50%",
-          transform: "translate(-50%. -50%)",
+          transform: "translate(-50%, -50%)",
           width: "100%",
+
           maxWidth: "600px",
           padding: 4,
           outline: "none",
+          //   zIndex: 100000,
         }}
       >
         <Box

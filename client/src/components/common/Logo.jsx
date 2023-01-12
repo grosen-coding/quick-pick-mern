@@ -10,7 +10,8 @@ const Logo = () => {
         style={{
           color: theme.palette.primary.main,
           opacity: 0.7,
-          letterSpacing: "2px",
+          letterSpacing: "1.5px",
+          fontWeight: "700",
         }}
       >
         FLICK{" "}

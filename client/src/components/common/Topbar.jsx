@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import MenuIcon from "@mui/icons-material/Menu";
-import DarkModeOutlindIcon from "@mui/icons-material/DarkModeOutlined";
+import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 import WbSunnyOutlinedIcon from "@mui/icons-material/WbSunnyOutlined";
 import {
   AppBar,
@@ -104,6 +104,10 @@ const Topbar = () => {
                   {item.display}
                 </Button>
               ))}
+              <IconButton sx={{ color: "inherit" }} onClick={onSwithTheme}>
+                {themeMode === themeModes.dark && <DarkModeOutlinedIcon />}
+                {themeMode === themeModes.light && <WbSunnyOutlinedIcon />}
+              </IconButton>
             </Box>
             {/* End Main Menu */}
           </Toolbar>

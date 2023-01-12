@@ -38,11 +38,11 @@ const themeConfigs = {
           }
         : {
             primary: {
-              main: "#68b0ab",
+              main: "#4a7c59",
               contrastText: "#ffffff",
             },
             secondary: {
-              main: "#4a7c59",
+              main: "#68b0ab",
               contrastText: "#ffffff",
             },
             tertiary: {

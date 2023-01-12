@@ -1,24 +1,44 @@
+import { Box, Stack, Typography } from "@mui/material";
 import React from "react";
-import styled from "styled-components";
-import colorStyles from "../../styleVariables/colors";
 
 const Container = ({ header, children }) => {
   return (
-    <Wrap colorStyles={colorStyles}>
-      <div></div>
-
-      <h1>Container</h1>
-      <div></div>
-      <div></div>
-    </Wrap>
+    <Box
+      sx={{
+        marginTop: "5rem",
+        marginX: "auto",
+        color: "text.primary",
+      }}
+    >
+      <Stack spacing={4}>
+        {header && (
+          <Box
+            sx={{
+              position: "relative",
+              paddingX: { xs: "20px", md: 0 },
+              maxWidth: "1366px",
+              marginX: "auto",
+              width: "100%",
+              "&::before": {
+                content: '""',
+                position: "absolute",
+                left: { xs: "20px", md: "0" },
+                top: "100%",
+                height: "5px",
+                width: "100px",
+                backgroundColor: "primary.main",
+              },
+            }}
+          >
+            <Typography variant="h5" fontWeight="700" textTransform="uppercase">
+              {header}
+            </Typography>
+          </Box>
+        )}
+        {children}
+      </Stack>
+    </Box>
   );
 };
 
 export default Container;
-
-const Wrap = styled.div`
-  margin: 5rem auto 0;
-  background-color: #000;
-  color: ${({ colorStyles }) => (colorStyles ? colorStyles.tertiary : "#888")};
-  /* transform: ${(props) => (props.showNav ? "scale(0)" : "scale(1)")}; */
-`;

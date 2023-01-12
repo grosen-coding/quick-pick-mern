@@ -12,11 +12,23 @@ const themeConfigs = {
       mode === themeModes.dark
         ? {
             primary: {
-              main: "#ff000",
+              main: "#68b0ab",
               contrastText: "#ffffff",
             },
             secondary: {
-              main: "#f44336",
+              main: "#4a7c59",
+              contrastText: "#ffffff",
+            },
+            tertiary: {
+              main: "#8fc0a9",
+              contrastText: "#ffffff",
+            },
+            fourth: {
+              main: "#c8d5b9",
+              contrastText: "#ffffff",
+            },
+            fifth: {
+              main: "#faf3dd",
               contrastText: "#ffffff",
             },
             background: {
@@ -26,10 +38,24 @@ const themeConfigs = {
           }
         : {
             primary: {
-              main: "#ff000",
+              main: "#68b0ab",
+              contrastText: "#ffffff",
             },
             secondary: {
-              main: "#f44336",
+              main: "#4a7c59",
+              contrastText: "#ffffff",
+            },
+            tertiary: {
+              main: "#8fc0a9",
+              contrastText: "#ffffff",
+            },
+            fourth: {
+              main: "#c8d5b9",
+              contrastText: "#ffffff",
+            },
+            fifth: {
+              main: "#faf3dd",
+              contrastText: "#ffffff",
             },
             background: {
               default: colors.grey["100"],

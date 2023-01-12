@@ -1,4 +1,4 @@
-import HomeOutlinedIcon from "@mui/icons-material/HomeMaxOutlined";
+import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import SlideshowOutlinedIcon from "@mui/icons-material/SlideshowOutlined";
 import LiveTvOutlinedIcon from "@mui/icons-material/LiveTvOutlined";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
@@ -14,7 +14,7 @@ const main = [
     state: "home",
   },
   {
-    display: "movie",
+    display: "movies",
     path: "/movie",
     icon: <SlideshowOutlinedIcon />,
     state: "movie",

@@ -1,52 +1,36 @@
 import React from "react";
-import styled from "styled-components";
+// import styled from "styled-components";
 import { Outlet } from "react-router-dom";
 import GlobalLoading from "../common/GlobalLoading";
 import Footer from "../common/Footer";
-import Navbar from "../common/Navbar";
-import Container from "../common/Container";
+import Topbar from "../common/Topbar";
+
+import { Box } from "@mui/material";
 
 const MainLayout = () => {
   return (
     <>
-      {/* Global Loading */}
+      {/* globalloading */}
       <GlobalLoading />
+      {/* globalloading */}
 
-      {/* Login Modal */}
-
-      <MainContainer>
+      <Box display="flex" minHeight="100vh">
+        {/* header */}
+        <Topbar />
         {/* header */}
 
-        {/* Navbar */}
-        <Navbar />
-
-        {/* header ENDS */}
-
         {/* main */}
-
-        <Container>
-          <MainPageLayout>
-            <Outlet />
-          </MainPageLayout>
-        </Container>
-        {/* main ENDS */}
-      </MainContainer>
+        <Box component="main" flexGrow={1} overflow="hidden" minHeight="100vh">
+          <Outlet />
+        </Box>
+        {/* main */}
+      </Box>
 
       {/* footer */}
       <Footer />
-      {/* footer ENDS */}
+      {/* footer */}
     </>
   );
 };
 
 export default MainLayout;
-
-const MainContainer = styled.div`
-  display: flex;
-  min-height: 100vh;
-`;
-const MainPageLayout = styled.main`
-  flex-grow: 1;
-  overflow: hidden;
-  min-height: 100vh;
-`;

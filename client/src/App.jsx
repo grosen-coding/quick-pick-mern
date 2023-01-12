@@ -1,4 +1,4 @@
-import GlobalStyle from "./globalStyles";
+// import GlobalStyle from "./globalStyles";
 import { ThemeProvider } from "@mui/material/styles";
 import { useSelector } from "react-redux";
 import themeConfigs from "./configs/theme.config";
@@ -14,7 +14,7 @@ const App = () => {
   return (
     <ThemeProvider theme={themeConfigs.custom({ mode: themeMode })}>
       {/* Global Styles */}
-      <GlobalStyle />
+      {/* <GlobalStyle /> */}
 
       {/* Toastify */}
       <ToastContainer
@@ -69,6 +69,7 @@ const App = () => {
           </Route>
         </Routes>
       </BrowserRouter>
+      {/* app routes */}
     </ThemeProvider>
   );
 };

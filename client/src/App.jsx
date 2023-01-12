@@ -1,3 +1,4 @@
+import GlobalStyle from "./globalStyles";
 import { ThemeProvider } from "@mui/material/styles";
 import { useSelector } from "react-redux";
 import themeConfigs from "./configs/theme.config";
@@ -7,10 +8,14 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MainLayout from "./components/layout/MainLayout";
 import PageWrapper from "./components/common/PageWrapper";
 import routes from "./routes/routes";
+
 const App = () => {
   const { themeMode } = useSelector((state) => state.themeMode);
   return (
     <ThemeProvider theme={themeConfigs.custom({ mode: themeMode })}>
+      {/* Global Styles */}
+      <GlobalStyle />
+
       {/* Toastify */}
       <ToastContainer
         position="bottom-left"
@@ -64,7 +69,6 @@ const App = () => {
           </Route>
         </Routes>
       </BrowserRouter>
-      <h1>Hello World</h1>
     </ThemeProvider>
   );
 };

@@ -2,6 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import { Outlet } from "react-router-dom";
 import GlobalLoading from "../common/GlobalLoading";
+import Footer from "../common/Footer";
+import Navbar from "../common/Navbar";
+import Container from "../common/Container";
 
 const MainLayout = () => {
   return (
@@ -11,20 +14,26 @@ const MainLayout = () => {
 
       {/* Login Modal */}
 
-      <Container>
+      <MainContainer>
         {/* header */}
+
+        {/* Navbar */}
+        <Navbar />
 
         {/* header ENDS */}
 
         {/* main */}
-        <MainPageLayout>
-          <Outlet />
-        </MainPageLayout>
+
+        <Container>
+          <MainPageLayout>
+            <Outlet />
+          </MainPageLayout>
+        </Container>
         {/* main ENDS */}
-      </Container>
+      </MainContainer>
 
       {/* footer */}
-
+      <Footer />
       {/* footer ENDS */}
     </>
   );
@@ -32,7 +41,7 @@ const MainLayout = () => {
 
 export default MainLayout;
 
-const Container = styled.div`
+const MainContainer = styled.div`
   display: flex;
   min-height: 100vh;
 `;

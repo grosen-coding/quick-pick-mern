@@ -20,6 +20,8 @@ import { setAuthModalOpen } from "../../redux/features/authModalSlice";
 import { setThemeMode } from "../../redux/features/themeModeSlice";
 import Logo from "./Logo";
 import UserMenu from "./UserMenu";
+import styled from "styled-components";
+import Sidebar from "./Sidebar";
 
 const ScrollAppBar = ({ children, window }) => {
   const { themeMode } = useSelector((state) => state.themeMode);
@@ -53,32 +55,50 @@ const Topbar = () => {
 
   const dispatch = useDispatch();
 
-  const onSwithTheme = () => {
+  const onSwitchTheme = () => {
     const theme =
       themeMode === themeModes.dark ? themeModes.light : themeModes.dark;
 
     dispatch(setThemeMode(theme));
   };
 
+  const toggleSidebar = () => setSidebarOpen(!sidebarOpen);
+
   return (
     <>
+      <Sidebar open={sidebarOpen} toggleSidebar={toggleSidebar} />
       <ScrollAppBar>
-        <AppBar elevation={0} sx={{ zIndex: 99999 }}>
+        <AppBar
+          elevation={0}
+          sx={{
+            zIndex: 99999,
+          }}
+        >
           <Toolbar
-            sx={{ alignItems: "center", justifyContent: "space-between" }}
+            sx={{
+              alignItems: "center",
+              justifyContent: "space-between",
+              maxHeight: "50px",
+              // backgroundColor: "lightblue",
+              maxWidth: "1500px",
+              margin: "0 auto",
+              width: "100%",
+              border: "1px solid red",
+            }}
           >
-            <Stack direction="row" spacing={1} alignItems="center">
-              <IconButton
-                color="inherit"
-                sx={{ mr: 2, display: { md: "none" } }}
-              >
-                <MenuIcon />
-              </IconButton>
+            {/* <Stack direction="row" spacing={1} alignItems="center"> */}
+            <IconButton
+              color="inherit"
+              sx={{ mr: 2, display: { md: "none" } }}
+              onClick={toggleSidebar}
+            >
+              <MenuIcon />
+            </IconButton>
 
-              <Box sx={{ display: { xs: "inline-block", md: "none" } }}>
-                <Logo />
-              </Box>
-            </Stack>
+            <Box sx={{ display: { xs: "inline-block", md: "none" } }}>
+              <Logo />
+            </Box>
+            {/* </Stack> */}
 
             {/* Main Menu */}
             <Box
@@ -86,26 +106,50 @@ const Topbar = () => {
               alignItems="center"
               display={{ xs: "none", md: "flex" }}
             >
-              <Box sx={{ marginRight: "30px" }}>
+              <Box
+                sx={{
+                  padding: "0",
+                  margin: "0",
+                  // height: "50px",
+                  width: "30%",
+                  border: "1px solid red",
+                  lineHeight: "0",
+                }}
+              >
                 <Logo />
               </Box>
-              {menuConfigs.main.map((item, index) => (
-                <Button
-                  key={index}
-                  sx={{
-                    color: appState.includes(item.state)
-                      ? "primary.contrastText"
-                      : "inherit",
-                    mr: 2,
-                  }}
-                  component={Link}
-                  to={item.path}
-                  variant={appState.includes(item.state) ? "contained" : "text"}
-                >
-                  {item.display}
-                </Button>
-              ))}
-              <IconButton sx={{ color: "inherit" }} onClick={onSwithTheme}>
+              <ButtonContainer>
+                {menuConfigs.main.map((item, index) => (
+                  <Button
+                    key={index}
+                    sx={{
+                      fontWeight: "500",
+                      letterSpacing: "1px",
+                      color: appState.includes(item.state)
+                        ? "primary.contrastText"
+                        : "inherit",
+                      mr: 2,
+                      border: "1px solid green",
+                      padding: "5px 15px",
+                    }}
+                    component={Link}
+                    to={item.path}
+                    variant={
+                      appState.includes(item.state) ? "contained" : "text"
+                    }
+                  >
+                    {item.display}
+                  </Button>
+                ))}
+              </ButtonContainer>
+              <IconButton
+                sx={{
+                  justifySelf: "flex-end",
+                  color: "inherit",
+                  border: "1px solid yellow",
+                }}
+                onClick={onSwitchTheme}
+              >
                 {themeMode === themeModes.dark && <DarkModeOutlinedIcon />}
                 {themeMode === themeModes.light && <WbSunnyOutlinedIcon />}
               </IconButton>
@@ -113,8 +157,18 @@ const Topbar = () => {
             {/* End Main Menu */}
 
             {/* User Menu */}
-
-            <UserMenu />
+            <Stack spacing={2} direction="row" alignItems="center">
+              {!user && (
+                <Button
+                  variant="contained"
+                  onClick={() => dispatch(setAuthModalOpen(true))}
+                >
+                  sign in
+                </Button>
+              )}
+            </Stack>
+            {user && <UserMenu />}
+            {/* END User Menu */}
           </Toolbar>
         </AppBar>
       </ScrollAppBar>
@@ -123,3 +177,11 @@ const Topbar = () => {
 };
 
 export default Topbar;
+
+const ButtonContainer = styled.div`
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  /* margin-right: 150px; */
+  margin: 0 30px;
+`;

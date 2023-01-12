@@ -4,14 +4,14 @@ const Logo = () => {
   const theme = useTheme();
 
   return (
-    <Typography fontWeight="700" fontSize="1.7rem">
+    <Typography fontWeight="700" fontSize="1.5rem">
       Quick{" "}
       <span
         style={{
           color: theme.palette.primary.main,
           opacity: 1,
           letterSpacing: "1.5px",
-          fontWeight: "700",
+          // fontWeight: "700",
         }}
       >
         FLICK{" "}

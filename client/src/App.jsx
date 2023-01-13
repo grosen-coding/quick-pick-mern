@@ -9,6 +9,9 @@ import MainLayout from "./components/layout/MainLayout";
 import PageWrapper from "./components/common/PageWrapper";
 import routes from "./routes/routes";
 
+// Toastify native styling
+import "react-toastify/dist/ReactToastify.css";
+
 const App = () => {
   const { themeMode } = useSelector((state) => state.themeMode);
   return (

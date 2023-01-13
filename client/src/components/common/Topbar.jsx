@@ -182,6 +182,5 @@ const ButtonContainer = styled.div`
   width: 50%;
   display: flex;
   justify-content: center;
-  /* margin-right: 150px; */
   margin: 0 30px;
 `;

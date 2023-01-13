@@ -64,9 +64,7 @@ const Sidebar = ({ open, toggleSidebar }) => {
             <ListItemText
               disableTypography
               primary={
-                <Typography textTransform="uppercase">
-                  {item.display}
-                </Typography>
+                <Typography textTransform="uppercase">{item.title}</Typography>
               }
             />
           </ListItemButton>
@@ -97,7 +95,7 @@ const Sidebar = ({ open, toggleSidebar }) => {
                   disableTypography
                   primary={
                     <Typography textTransform="uppercase">
-                      {item.display}
+                      {item.title}
                     </Typography>
                   }
                 />

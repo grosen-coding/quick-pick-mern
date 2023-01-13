@@ -28,6 +28,18 @@ const MainLayout = () => {
     authUser();
   }, [dispatch]);
 
+  useEffect(() => {
+    const getFavourites = async () => {
+      const { response, error } = await favouriteAPI.getList();
+
+      if (response) dispatch(setListFavourites(response));
+      if (error) toast.error(error.message);
+    };
+
+    if (user) getFavourites();
+    if (!user) dispatch(setListFavourites([]));
+  }, [user, dispatch]);
+
   return (
     <>
       <GlobalLoading />

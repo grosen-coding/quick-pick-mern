@@ -37,16 +37,16 @@ app.use("/api/v1", routes);
 // Server
 const server = http.createServer(app);
 
-const port = process.env.PORT || 8000;
+const port = process.env.PORT || 3000;
 
 mongoose.set("strictQuery", false);
 
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => {
-    console.log("Mongodb connected");
+    console.log(`Mongo DB Connected!`.cyan.underline);
     server.listen(port, () => {
-      console.log(`Server is listening on port ${port}`);
+      console.log(`Server is listening on port ${port}`.blue.italic);
     });
   })
   .catch((err) => {

@@ -138,7 +138,7 @@ const Topbar = () => {
                       appState.includes(item.state) ? "contained" : "text"
                     }
                   >
-                    {item.display}
+                    {item.title}
                   </Button>
                 ))}
               </ButtonContainer>

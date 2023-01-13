@@ -1,7 +1,7 @@
 import axios from "axios";
 import queryString from "query-string";
 
-const baseURL = "htt[://127.0.0.1:3000/api/v1/";
+const baseURL = "http://127.0.0.1:3000/api/v1/";
 
 const privateClient = axios.create({
   baseURL,
@@ -24,8 +24,8 @@ privateClient.interceptors.response.use(
   (response) => {
     if (response && response.data) return response.data;
   },
-  (err) => {
-    throw err.response.data;
+  (error) => {
+    throw error.response.data;
   }
 );
 

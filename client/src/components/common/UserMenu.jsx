@@ -31,7 +31,7 @@ const UserMenu = () => {
             sx={{ cursor: "pointer", userSelect: "none" }}
             onClick={toggleMenu}
           >
-            (user.displayName)
+            {user.displayName}
           </Typography>
           <Menu
             open={Boolean(anchorEl)}
@@ -51,12 +51,14 @@ const UserMenu = () => {
                   disableTypography
                   primary={
                     <Typography textTransform="uppercase">
-                      {item.displayName}
+                      {item.title}
                     </Typography>
                   }
                 />
               </ListItemButton>
             ))}
+
+            {/* SignOut */}
             <ListItemButton
               sx={{ borderRadius: "10px" }}
               onClick={() => dispatch(setUser(null))}

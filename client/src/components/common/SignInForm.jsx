@@ -82,6 +82,33 @@ const SignInForm = ({ switchAuthState }) => {
             }
           />
         </Stack>
+
+        <LoadingButton
+          type="submit"
+          fullWidth
+          size="large"
+          variant="contained"
+          sx={{ marginTop: 4 }}
+          loading={isLoginRequest}
+        >
+          sign in
+        </LoadingButton>
+
+        <Button
+          fullWidth
+          sx={{ marginTop: "1rem" }}
+          onClick={() => switchAuthState()}
+        >
+          sign up
+        </Button>
+
+        {errorMessage && (
+          <Box sx={{ marginTop: 2 }}>
+            <Alert severity="error" variant="outlined">
+              {errorMessage}
+            </Alert>
+          </Box>
+        )}
       </Box>
     </>
   );

@@ -26,7 +26,7 @@ const UserMenu = () => {
                 fontWeight: "700",
                 marginLeft: "5px",
                 paddingBottom: "2px",
-                borderBottom: "1px solid #c8d5b9",
+                fontStyle: "italic",
               }}
             >
               {user.displayName}

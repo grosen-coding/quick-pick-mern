@@ -1,4 +1,4 @@
-import PlayArrowIcon from "@mui/icons-material/PlayArrow";
+import ManageSearchIcon from "@mui/icons-material/ManageSearch";
 import { Box, Button, Stack, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
@@ -9,6 +9,7 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import CircularRating from "./CircularRating";
 import { useSelector } from "react-redux";
 import favouriteUtils from "../../utils/favourite.utils";
+import { red } from "@mui/material/colors";
 
 const MediaItem = ({ media, mediaType }) => {
   const { listFavourites } = useSelector((state) => state.user);
@@ -63,11 +64,11 @@ const MediaItem = ({ media, mediaType }) => {
           <>
             {favouriteUtils.check({ listFavourites, mediaId: media.id }) && (
               <FavoriteIcon
-                color="primary"
+                color="red"
                 sx={{
                   position: "absolute",
-                  top: 2,
-                  right: 2,
+                  top: "10px",
+                  right: "10px",
                   fontSize: "2rem",
                 }}
               />
@@ -89,7 +90,7 @@ const MediaItem = ({ media, mediaType }) => {
             <Button
               className="media-play-btn"
               variant="contained"
-              startIcon={<PlayArrowIcon />}
+              startIcon={<ManageSearchIcon />}
               sx={{
                 display: { xs: "none", md: "flex" },
                 opacity: 0,
@@ -100,7 +101,9 @@ const MediaItem = ({ media, mediaType }) => {
                 transform: "translate(-50%, -50%)",
                 "& .MuiButton-startIcon": { marginRight: "-4px" },
               }}
-            />
+            >
+              &nbsp;&nbsp; More Info
+            </Button>
             <Box
               className="media-info"
               sx={{

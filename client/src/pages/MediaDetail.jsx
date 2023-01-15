@@ -219,14 +219,21 @@ const MediaDetail = () => {
                     variant="text"
                     sx={{
                       width: "max-content",
-                      "& .MuiButon-starIcon": { marginRight: "0" },
+                      "& .MuiButton-starIcon": { marginRight: "0" },
                     }}
-                    size="large"
+                    size="xlarge"
                     startIcon={
                       isFavourite ? (
-                        <FavoriteIcon />
+                        <FavoriteIcon
+                          style={{ transform: "scale(2)", color: "red" }}
+                          className="svg_icon"
+                        />
                       ) : (
-                        <FavoriteBorderOutlinedIcon />
+                        <FavoriteBorderOutlinedIcon
+                          style={{
+                            transform: "scale(1.6)",
+                          }}
+                        />
                       )
                     }
                     loadingPosition="start"
@@ -240,7 +247,7 @@ const MediaDetail = () => {
                     startIcon={<PlayArrowIcon />}
                     onClick={() => videoRef.current.scrollIntoView()}
                   >
-                    watch now
+                    Watch Trailer
                   </Button>
                 </Stack>
                 {/* buttons */}

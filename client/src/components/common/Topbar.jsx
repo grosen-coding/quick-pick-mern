@@ -1,8 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import MenuIcon from "@mui/icons-material/Menu";
-import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
-import WbSunnyOutlinedIcon from "@mui/icons-material/WbSunnyOutlined";
 import {
   AppBar,
   Box,
@@ -49,18 +47,10 @@ const ScrollAppBar = ({ children, window }) => {
 const Topbar = () => {
   const { user } = useSelector((state) => state.user);
   const { appState } = useSelector((state) => state.appState);
-  const { themeMode } = useSelector((state) => state.themeMode);
 
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const dispatch = useDispatch();
-
-  const onSwitchTheme = () => {
-    const theme =
-      themeMode === themeModes.dark ? themeModes.light : themeModes.dark;
-
-    dispatch(setThemeMode(theme));
-  };
 
   const toggleSidebar = () => setSidebarOpen(!sidebarOpen);
 
@@ -149,6 +139,10 @@ const Topbar = () => {
               </ButtonContainer>
             </Box>
             {/* End Main Menu */}
+
+            {/* User Favourites Menu */}
+
+            {/* End User Favourites */}
 
             {/* User Menu */}
             <Stack spacing={2} direction="row" alignItems="center">

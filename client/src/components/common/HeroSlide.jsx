@@ -1,5 +1,5 @@
 import React from "react";
-import PlayArrowIcon from "@mui/icons-material/PlayArrow";
+import ManageSearchIcon from "@mui/icons-material/ManageSearch";
 import {
   Box,
   Button,
@@ -12,7 +12,7 @@ import {
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { Autoplay } from "swiper";
+import SwiperCore, { Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { toast } from "react-toastify";
 import { setGlobalLoading } from "../../redux/features/globalLoadingSlice";
@@ -64,6 +64,8 @@ const HeroSlide = ({ mediaType, mediaCategory }) => {
     getGenres();
   }, [mediaType, mediaCategory, dispatch]);
 
+  SwiperCore.use([Autoplay]);
+
   return (
     <Box
       sx={{
@@ -85,12 +87,12 @@ const HeroSlide = ({ mediaType, mediaCategory }) => {
       <Swiper
         grabCursor={true}
         loop={true}
-        // modules={[Autoplay]}
+        modules={[Autoplay]}
         style={{ width: "100%", height: "max-content" }}
-        // autoplay={{
-        //   delay: 3000,
-        //   disableOnInteraction: false
-        // }}
+        autoplay={{
+          delay: 3000,
+          disableOnInteraction: false,
+        }}
       >
         {movies.map((movie, index) => (
           <SwiperSlide key={index}>
@@ -191,12 +193,12 @@ const HeroSlide = ({ mediaType, mediaCategory }) => {
                   <Button
                     variant="contained"
                     size="large"
-                    startIcon={<PlayArrowIcon />}
+                    startIcon={<ManageSearchIcon />}
                     component={Link}
                     to={routesGen.mediaDetail(mediaType, movie.id)}
                     sx={{ width: "max-content" }}
                   >
-                    watch now
+                    More Info
                   </Button>
                   {/* buttons */}
                 </Stack>

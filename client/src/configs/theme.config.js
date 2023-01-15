@@ -30,6 +30,10 @@ const themeConfigs = {
               main: "#faf3dd",
               contrastText: "#ffffff",
             },
+            red: {
+              main: "red",
+              contrastText: "#ffffff",
+            },
             background: {
               default: "#000000",
               paper: "#131313",

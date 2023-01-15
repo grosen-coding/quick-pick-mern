@@ -89,7 +89,12 @@ const Topbar = () => {
             {/* <Stack direction="row" spacing={1} alignItems="center"> */}
             <IconButton
               color="inherit"
-              sx={{ mr: 2, display: { md: "none" } }}
+              sx={{
+                mr: 2,
+                display: { md: "none" },
+                position: "relative",
+                zIndex: "10000000",
+              }}
               onClick={toggleSidebar}
             >
               <MenuIcon />
@@ -142,17 +147,6 @@ const Topbar = () => {
                   </Button>
                 ))}
               </ButtonContainer>
-              <IconButton
-                sx={{
-                  justifySelf: "flex-end",
-                  color: "inherit",
-                  border: "1px solid yellow",
-                }}
-                onClick={onSwitchTheme}
-              >
-                {themeMode === themeModes.dark && <DarkModeOutlinedIcon />}
-                {themeMode === themeModes.light && <WbSunnyOutlinedIcon />}
-              </IconButton>
             </Box>
             {/* End Main Menu */}
 

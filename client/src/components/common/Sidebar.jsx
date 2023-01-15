@@ -14,9 +14,8 @@ import { Link } from "react-router-dom";
 import menuConfigs from "../../configs/menu.configs";
 import Logo from "./Logo";
 import uiConfigs from "../../configs/ui.configs";
-import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
-import WbSunnyOutlinedIcon from "@mui/icons-material/WbSunnyOutlined";
-
+import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
+import { setUser } from "../../redux/features/userSlice";
 import { themeModes } from "../../configs/theme.config";
 import { setThemeMode } from "../../redux/features/themeModeSlice";
 
@@ -37,14 +36,14 @@ const Sidebar = ({ open, toggleSidebar }) => {
 
   const drawer = (
     <>
-      <Toolbar sx={{ paddingY: "20px", color: "text.primary" }}>
+      <Toolbar sx={{ paddingY: "60px", color: "text.primary" }}>
         <Stack width="100%" direction="row" justifyContent="center">
           <Logo />
         </Stack>
       </Toolbar>
       <List sx={{ paddingX: "30px" }}>
         <Typography variant="h6" marginBottom="20px">
-          PUBLIC MENU
+          {user ? user.displayName + "'s" : "Public"} MENU
         </Typography>
         {menuConfigs.main.map((item, index) => (
           <ListItemButton
@@ -73,9 +72,6 @@ const Sidebar = ({ open, toggleSidebar }) => {
         {/* If User Exists - Show User Menu */}
         {user && (
           <>
-            <Typography variant="h6" marginBottom="20px">
-              USER MENU
-            </Typography>
             {menuConfigs.user.map((item, index) => (
               <ListItemButton
                 key={index}
@@ -101,26 +97,25 @@ const Sidebar = ({ open, toggleSidebar }) => {
                 />
               </ListItemButton>
             ))}
+
+            {user && (
+              <ListItemButton
+                sx={{ borderRadius: "10px" }}
+                onClick={() => dispatch(setUser(null))}
+              >
+                <ListItemIcon>
+                  <LogoutOutlinedIcon />
+                </ListItemIcon>
+                <ListItemText
+                  disableTypography
+                  primary={
+                    <Typography textTransform="uppercase">sign out</Typography>
+                  }
+                />
+              </ListItemButton>
+            )}
           </>
         )}
-
-        <Typography variant="h6" marginBottom="20px">
-          THEME
-        </Typography>
-        <ListItemButton onClick={onSwitchTheme}>
-          <ListItemIcon>
-            {themeMode === themeModes.dark && <DarkModeOutlinedIcon />}
-            {themeMode === themeModes.light && <WbSunnyOutlinedIcon />}
-          </ListItemIcon>
-          <ListItemText
-            disableTypography
-            primary={
-              <Typography textTransform="uppercase">
-                {themeMode === themeModes.dark ? "dark mode" : "light mode"}
-              </Typography>
-            }
-          />
-        </ListItemButton>
       </List>
     </>
   );

@@ -3,7 +3,6 @@ import { colors } from "@mui/material";
 
 export const themeModes = {
   dark: "dark",
-  light: "light",
 };
 
 const themeConfigs = {

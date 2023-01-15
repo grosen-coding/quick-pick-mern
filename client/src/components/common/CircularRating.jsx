@@ -1,3 +1,4 @@
+import React from "react";
 import { Box, Typography, CircularProgress } from "@mui/material";
 
 const CircularRating = ({ value }) => {
@@ -19,10 +20,10 @@ const CircularRating = ({ value }) => {
       <Box
         sx={{
           position: "absolute",
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
+          top: "0",
+          left: "0",
+          right: "0",
+          bottom: "0",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
@@ -40,3 +41,5 @@ const CircularRating = ({ value }) => {
     </Box>
   );
 };
+
+export default CircularRating;

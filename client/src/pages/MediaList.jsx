@@ -24,6 +24,7 @@ const MediaList = () => {
   const [currPage, setCurrPage] = useState(1);
 
   const prevMediaType = usePrevious(mediaType);
+
   const dispatch = useDispatch();
 
   const mediaCategories = useMemo(() => ["popular", "top_rated"], []);

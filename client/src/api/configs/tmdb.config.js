@@ -14,7 +14,7 @@ const backdropPath = (imgEndPoint) =>
 const posterPath = (imgEndPoint) =>
   `https://image.tmdb.org/t/p/w500${imgEndPoint}`;
 
-const youTubePath = (videoId) =>
+const youtubePath = (videoId) =>
   `https://www.youtube.com/embed/${videoId}?controls=0`;
 
 const tmdbConfigs = {
@@ -22,7 +22,7 @@ const tmdbConfigs = {
   mediaCategory,
   backdropPath,
   posterPath,
-  youTubePath,
+  youtubePath,
 };
 
 export default tmdbConfigs;

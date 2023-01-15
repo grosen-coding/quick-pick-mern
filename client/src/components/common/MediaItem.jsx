@@ -9,7 +9,6 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import CircularRating from "./CircularRating";
 import { useSelector } from "react-redux";
 import favouriteUtils from "../../utils/favourite.utils";
-import { red } from "@mui/material/colors";
 
 const MediaItem = ({ media, mediaType }) => {
   const { listFavourites } = useSelector((state) => state.user);
@@ -54,7 +53,6 @@ const MediaItem = ({ media, mediaType }) => {
         sx={{
           ...uiConfigs.style.backgroundImage(posterPath),
           paddingTop: "160%",
-          "&:hover .media-info": { opacity: 1, bottom: 0 },
           "&:hover .media-back-drop, &:hover .media-play-btn": { opacity: 1 },
           color: "primary.contrastText",
         }}
@@ -99,6 +97,7 @@ const MediaItem = ({ media, mediaType }) => {
                 top: "50%",
                 left: "50%",
                 transform: "translate(-50%, -50%)",
+                width: "80%",
                 "& .MuiButton-startIcon": { marginRight: "-4px" },
               }}
             >

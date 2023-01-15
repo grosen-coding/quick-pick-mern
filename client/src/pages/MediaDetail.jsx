@@ -91,7 +91,7 @@ const MediaDetail = () => {
     if (response) {
       dispatch(addFavourite(response));
       setIsFavourite(true);
-      toast.success("Successfully added to your Favourites List!");
+      toast.success(`Added "${media.title}" to your Favourites List!`);
     }
   };
 
@@ -113,7 +113,7 @@ const MediaDetail = () => {
     if (response) {
       dispatch(removeFavourite(favourite));
       setIsFavourite(false);
-      toast.success("Successfully removed item from your Favourites List");
+      toast.success(`Removed "${media.title}" from your Favourites List`);
     }
   };
 
@@ -225,13 +225,19 @@ const MediaDetail = () => {
                     startIcon={
                       isFavourite ? (
                         <FavoriteIcon
-                          style={{ transform: "scale(2)", color: "red" }}
+                          style={{
+                            transform: "scale(2)",
+                            color: "red",
+                            opacity: "0.5",
+                          }}
                           className="svg_icon"
                         />
                       ) : (
                         <FavoriteBorderOutlinedIcon
                           style={{
                             transform: "scale(1.6)",
+                            color: "red",
+                            opacity: "0.9",
                           }}
                         />
                       )

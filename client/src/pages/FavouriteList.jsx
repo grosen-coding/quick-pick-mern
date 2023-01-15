@@ -26,7 +26,7 @@ const FavouriteItem = ({ media, onRemoved }) => {
 
     if (err) toast.error(err.message);
     if (response) {
-      toast.success("Successfully removed favourite from list");
+      toast.success(`Removed "${media.mediaTitle}" from your Favourites List`);
       dispatch(removeFavourite({ mediaId: media.mediaId }));
       onRemoved(media.id);
     }

@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
 import { Swiper } from "swiper/react";
-import SwiperCore, { Autoplay } from "swiper";
+import SwiperCore, { Autoplay, Navigation } from "swiper";
 
 const AutoSwiper = ({ children }) => {
   SwiperCore.use([Autoplay]);
@@ -21,9 +21,11 @@ const AutoSwiper = ({ children }) => {
     >
       <Swiper
         slidesPerView="auto"
+        className="external-buttons"
         grabCursor={true}
-        modules={[Autoplay]}
+        modules={[Autoplay, Navigation]}
         style={{ width: "100%", height: "max-content" }}
+        navigation={true}
         autoplay={{
           delay: 2000,
           disableOnInteraction: true,

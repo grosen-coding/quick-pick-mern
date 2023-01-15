@@ -16,14 +16,14 @@ const Footer = () => {
           alignItems="center"
           justifyContent="space-between"
           direction={{ xs: "column", md: "row " }}
-          sx={{ height: "max-content" }}
+          sx={{ height: "40px", margin: "0 auto", width: "1366px" }}
         >
           <Logo />
           <Box>
             {menuConfigs.main.map((item, index) => (
               <Button
                 key={index}
-                sx={{ color: "inherit" }}
+                sx={{ color: "inherit", padding: "0 20px" }}
                 component={Link}
                 to={item.path}
               >

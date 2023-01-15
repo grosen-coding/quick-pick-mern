@@ -15,7 +15,6 @@ import { Link } from "react-router-dom";
 import menuConfigs from "../../configs/menu.configs";
 import { themeModes } from "../../configs/theme.config";
 import { setAuthModalOpen } from "../../redux/features/authModalSlice";
-import { setThemeMode } from "../../redux/features/themeModeSlice";
 import Logo from "./Logo";
 import UserMenu from "./UserMenu";
 import styled from "styled-components";
@@ -68,7 +67,9 @@ const Topbar = () => {
             sx={{
               alignItems: "center",
               justifyContent: "space-between",
-              maxHeight: "50px",
+              maxHeight: "70px",
+              height: "100%",
+              padding: " 20px 0",
               // backgroundColor: "lightblue",
               maxWidth: "1500px",
               margin: "0 auto",

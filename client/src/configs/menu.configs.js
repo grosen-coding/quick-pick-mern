@@ -35,10 +35,10 @@ const main = [
 
 const user = [
   {
-    title: "favorites",
-    path: "/favorites",
+    title: "favourites",
+    path: "/favourites",
     icon: <FavoriteBorderOutlinedIcon />,
-    state: "favorite",
+    state: "favourite",
   },
   {
     title: "reviews",

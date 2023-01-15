@@ -73,7 +73,7 @@ const Topbar = () => {
               maxWidth: "1500px",
               margin: "0 auto",
               width: "100%",
-              border: "1px solid red",
+              // border: "1px solid red",
             }}
           >
             {/* <Stack direction="row" spacing={1} alignItems="center"> */}
@@ -107,7 +107,7 @@ const Topbar = () => {
                   margin: "0",
                   // height: "50px",
                   width: "30%",
-                  border: "1px solid red",
+                  // border: "1px solid red",
                   lineHeight: "0",
                 }}
               >
@@ -119,13 +119,15 @@ const Topbar = () => {
                     key={index}
                     sx={{
                       fontWeight: "500",
+                      fontSize: "1.1rem",
+                      width: "auto",
                       letterSpacing: "1px",
                       color: appState.includes(item.state)
                         ? "primary.contrastText"
                         : "inherit",
                       mr: 2,
-                      border: "1px solid green",
-                      padding: "5px 15px",
+                      // border: "1px solid green",
+                      padding: "5px 10px",
                     }}
                     component={Link}
                     to={item.path}
@@ -144,10 +146,12 @@ const Topbar = () => {
             {user && (
               <Button
                 sx={{
-                  fontWeight: "500",
+                  fontWeight: "700",
                   letterSpacing: "1px",
+                  fontSize: "1.3rem",
+
                   mr: 4,
-                  border: "1px solid green",
+                  // border: "1px solid green",
                   padding: "5px 15px",
                 }}
                 component={Link}

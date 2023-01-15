@@ -53,7 +53,7 @@ const MainLayout = () => {
         minHeight="100%"
         // height="50vh"
         // padding="100px"
-        border="1px solid blue"
+        // border="1px solid blue"
         width="1500px"
         maxWidth="100%"
         margin=" 65px auto 0"

@@ -141,20 +141,34 @@ const Topbar = () => {
             {/* End Main Menu */}
 
             {/* User Favourites Menu */}
-
+            {user && (
+              <Button
+                sx={{
+                  fontWeight: "500",
+                  letterSpacing: "1px",
+                  mr: 4,
+                  border: "1px solid green",
+                  padding: "5px 15px",
+                }}
+                component={Link}
+                to={"/favourites"}
+              >
+                Favourites
+              </Button>
+            )}
             {/* End User Favourites */}
 
             {/* User Menu */}
-            <Stack spacing={2} direction="row" alignItems="center">
-              {!user && (
-                <Button
-                  variant="contained"
-                  onClick={() => dispatch(setAuthModalOpen(true))}
-                >
-                  sign in
-                </Button>
-              )}
-            </Stack>
+
+            {!user && (
+              <Button
+                variant="contained"
+                onClick={() => dispatch(setAuthModalOpen(true))}
+              >
+                sign in
+              </Button>
+            )}
+
             {user && <UserMenu />}
             {/* END User Menu */}
           </Toolbar>

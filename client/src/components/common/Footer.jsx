@@ -16,7 +16,6 @@ const Footer = () => {
           alignItems="center"
           justifyContent="space-between"
           direction={{ xs: "column", md: "row " }}
-          sx={{ height: "40px", margin: "0 auto", width: "1366px" }}
         >
           <Logo />
           <Box>

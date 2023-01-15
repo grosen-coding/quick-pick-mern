@@ -38,7 +38,11 @@ const GlobalLoading = () => {
             position: "absolute",
             top: "50%",
             left: "50%",
-            transform: "translate(-50%, -50%) scale(2.5)",
+            width: "280px",
+            transform: {
+              xs: "translate(-50%, -50%) scale(0.9)",
+              md: "translate(-50%, -50%) scale(2.5)",
+            },
           }}
         >
           <Logo />

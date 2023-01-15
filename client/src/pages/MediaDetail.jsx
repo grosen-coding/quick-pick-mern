@@ -1,7 +1,7 @@
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
-
+import { useTheme } from "@mui/material";
 import { LoadingButton } from "@mui/lab";
 import { Box, Button, Chip, Divider, Stack, Typography } from "@mui/material";
 import { useEffect, useState, useRef } from "react";
@@ -117,6 +117,8 @@ const MediaDetail = () => {
     }
   };
 
+  const theme = useTheme();
+
   return media ? (
     <>
       <ImageHeader
@@ -152,6 +154,7 @@ const MediaDetail = () => {
               <Box
                 sx={{
                   paddingTop: "140%",
+                  // marginTop: "60px",
                   ...uiConfigs.style.backgroundImage(
                     tmdbConfigs.posterPath(
                       media.poster_path || media.backdrop_path
@@ -177,11 +180,27 @@ const MediaDetail = () => {
                   fontWeight="700"
                   sx={{ ...uiConfigs.style.typoLines(2, "left") }}
                 >
-                  {`${media.title || media.name} ${
-                    mediaType === tmdbConfigs.mediaType.movie
+                  <span
+                    style={{
+                      color: theme.palette.fifth.main,
+                      paddingRight: "25px",
+                    }}
+                  >
+                    {media.title || media.name}
+                  </span>
+                  <span
+                    style={{
+                      // color: theme.palette.fifth.main,
+                      // paddingRight: "15px",
+                      fontSize: "2.5rem",
+                    }}
+                  >
+                    (
+                    {mediaType === tmdbConfigs.mediaType.movie
                       ? media.release_date.split("-")[0]
-                      : media.first_air_date.split("-")[0]
-                  }`}
+                      : media.first_air_date.split("-")[0]}
+                    )
+                  </span>
                 </Typography>
                 {/* title */}
 
@@ -207,7 +226,7 @@ const MediaDetail = () => {
                 {/* overview */}
                 <Typography
                   variant="body1"
-                  sx={{ ...uiConfigs.style.typoLines(5) }}
+                  sx={{ ...uiConfigs.style.typoLines(5), paddingTop: "20px" }}
                 >
                   {media.overview}
                 </Typography>

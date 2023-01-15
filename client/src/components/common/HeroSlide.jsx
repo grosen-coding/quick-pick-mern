@@ -147,9 +147,11 @@ const HeroSlide = ({ mediaType, mediaCategory }) => {
                   {/* title */}
                   <Typography
                     variant="h4"
-                    fontSize={{ xs: "2rem", md: "2rem", lg: "4rem" }}
+                    fontSize={{ xs: "1.4rem", md: "2rem", lg: "4rem" }}
                     fontWeight="700"
                     sx={{
+                      marginTop: { xs: "-50px" },
+                      color: "#faf3dd",
                       ...uiConfigs.style.typoLines(2, "left"),
                     }}
                   >
@@ -182,6 +184,7 @@ const HeroSlide = ({ mediaType, mediaCategory }) => {
                   <Typography
                     variant="body1"
                     sx={{
+                      fontSize: { xs: ".75rem", md: "1.1rem" },
                       ...uiConfigs.style.typoLines(3),
                     }}
                   >

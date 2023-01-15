@@ -16,9 +16,13 @@ const UserMenu = () => {
         <>
           <Typography
             variant="h6"
-            sx={{ userSelect: "none", marginRight: "40px" }}
+            sx={{
+              userSelect: "none",
+              marginRight: { xs: "0", md: "40px" },
+              fontSize: { xs: "1.1rem", md: "1.5rem" },
+            }}
           >
-            Welcome!{" "}
+            Welcome,{" "}
             <span
               style={{
                 color: "#c8d5b9",
@@ -26,22 +30,31 @@ const UserMenu = () => {
                 fontWeight: "700",
                 marginLeft: "5px",
                 paddingBottom: "2px",
-                fontStyle: "italic",
               }}
             >
               {user.displayName}
-            </span>
+            </span>{" "}
+            !
           </Typography>
 
           {/* SignOut */}
           <Button
             sx={{
               borderRadius: "10px",
-              border: "1px solid rgb(200, 213, 185, 0.5)",
+              outline: "2px solid rgb(200, 213, 185, 0.5)",
+              marginRight: { xs: "10px", md: "10px" },
             }}
             onClick={() => dispatch(setUser(null))}
           >
-            <Typography textTransform="uppercase">sign out</Typography>
+            <Typography
+              textTransform="uppercase"
+              fontWeight="700"
+              sx={{
+                fontSize: { xs: ".7rem", md: "1rem" },
+              }}
+            >
+              sign out
+            </Typography>
           </Button>
         </>
       )}

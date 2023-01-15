@@ -91,7 +91,7 @@ const Topbar = () => {
               <MenuIcon />
             </IconButton>
 
-            <Box sx={{ display: { xs: "inline-block", md: "none" } }}>
+            <Box sx={{ display: { xs: "none", md: "none" } }}>
               <Logo />
             </Box>
             {/* </Stack> */}
@@ -144,13 +144,14 @@ const Topbar = () => {
             {/* End Main Menu */}
 
             {/* User Favourites Menu */}
+
             {user && (
               <Button
                 sx={{
                   fontWeight: "700",
                   letterSpacing: "1px",
-                  fontSize: "1.3rem",
-
+                  fontSize: { xs: ".5rem", md: "1.3rem" },
+                  display: { xs: "none", md: "none" },
                   mr: 4,
                   // border: "1px solid green",
                   padding: "5px 15px",

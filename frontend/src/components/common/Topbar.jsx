@@ -201,6 +201,7 @@ const UserWrap = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-right: 20px;
 
   .user-circle {
     font-size: 2.5rem;

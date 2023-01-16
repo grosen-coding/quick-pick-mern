@@ -39,11 +39,8 @@ const UserMenu = () => {
 
           {/* SignOut */}
           <Button
-            sx={{
-              borderRadius: "10px",
-              outline: "2px solid rgb(200, 213, 185, 0.5)",
-              marginRight: { xs: "10px", md: "10px" },
-            }}
+            sx={{ backgroundColor: "#4a7c59" }}
+            variant="contained"
             onClick={() => dispatch(setUser(null))}
           >
             <Typography

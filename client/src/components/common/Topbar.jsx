@@ -6,7 +6,7 @@ import {
   Box,
   Button,
   IconButton,
-  Stack,
+  Typography,
   Toolbar,
   useScrollTrigger,
 } from "@mui/material";
@@ -168,10 +168,19 @@ const Topbar = () => {
 
             {!user && (
               <Button
+                sx={{ backgroundColor: "#4a7c59" }}
                 variant="contained"
                 onClick={() => dispatch(setAuthModalOpen(true))}
               >
-                sign in
+                <Typography
+                  textTransform="uppercase"
+                  fontWeight="700"
+                  sx={{
+                    fontSize: { xs: ".7rem", md: "1rem" },
+                  }}
+                >
+                  sign in
+                </Typography>
               </Button>
             )}
 

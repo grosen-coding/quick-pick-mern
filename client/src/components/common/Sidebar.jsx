@@ -16,23 +16,14 @@ import Logo from "./Logo";
 import uiConfigs from "../../configs/ui.configs";
 import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
 import { setUser } from "../../redux/features/userSlice";
-import { themeModes } from "../../configs/theme.config";
-import { setThemeMode } from "../../redux/features/themeModeSlice";
 
 const Sidebar = ({ open, toggleSidebar }) => {
   const dispatch = useDispatch();
 
   const { user } = useSelector((state) => state.user);
   const { appState } = useSelector((state) => state.appState);
-  const { themeMode } = useSelector((state) => state.themeMode);
 
   const sidebarWidth = uiConfigs.size.sidebarWidth;
-
-  const onSwitchTheme = () => {
-    const theme =
-      themeMode === themeModes.dark ? themeModes.light : themeModes.dark;
-    dispatch(setThemeMode(theme));
-  };
 
   const drawer = (
     <>

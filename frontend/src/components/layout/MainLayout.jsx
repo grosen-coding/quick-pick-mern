@@ -51,8 +51,6 @@ const MainLayout = () => {
         className="menu"
         display="flex"
         minHeight="100%"
-        // height="50vh"
-        // padding="100px"
         // border="1px solid blue"
         width="1500px"
         maxWidth="100%"

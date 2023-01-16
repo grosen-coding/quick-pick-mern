@@ -7,11 +7,7 @@
   "author": "GSRCoding",
   "license": "MIT",
   "scripts": {
-    "start": "node index.js",
-    "server": "nodemon index.js",
-    "client": "npm start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+    "start": "nodemon index.js"
   },
   "dependencies": {
     "axios": "^1.2.0",
@@ -23,8 +19,9 @@
     "express-validator": "^6.14.2",
     "http": "^0.0.1-security",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^6.7.5",
-    "node": "^19.4.0",
+    "mongoose": "^6.7.5"
+  },
+  "devDependencies": {
     "nodemon": "^2.0.20"
   }
 }

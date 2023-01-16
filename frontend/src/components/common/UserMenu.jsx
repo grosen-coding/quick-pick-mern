@@ -1,12 +1,26 @@
-import React from "react";
-import { Button, Typography } from "@mui/material";
+import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
+import {
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
+  Menu,
+  Typography,
+} from "@mui/material";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import menuConfigs from "../../configs/menu.configs";
 import { setUser } from "../../redux/features/userSlice";
+import ArrowDropDownCircleIcon from "@mui/icons-material/ArrowDropDownCircle";
 
 const UserMenu = () => {
   const { user } = useSelector((state) => state.user);
 
   const dispatch = useDispatch();
+
+  const [anchorEl, setAnchorEl] = useState(null);
+
+  const toggleMenu = (e) => setAnchorEl(e.currentTarget);
 
   return (
     <>
@@ -14,43 +28,60 @@ const UserMenu = () => {
         <>
           <Typography
             variant="h6"
-            sx={{
-              userSelect: "none",
-              marginRight: { xs: "0", md: "40px" },
-              fontSize: { xs: "1.1rem", md: "1.5rem" },
-            }}
+            sx={{ cursor: "pointer", userSelect: "none" }}
+            // onClick={toggleMenu}
           >
-            Welcome,{" "}
-            <span
-              style={{
-                color: "#c8d5b9",
-                textTransform: "uppercase",
-                fontWeight: "700",
-                marginLeft: "5px",
-                paddingBottom: "2px",
-              }}
-            >
-              {user.displayName}
-            </span>{" "}
-            !
+            {user.displayName}
           </Typography>
-
-          {/* SignOut */}
-          <Button
-            sx={{ backgroundColor: "#4a7c59" }}
-            variant="contained"
-            onClick={() => dispatch(setUser(null))}
+          <ArrowDropDownCircleIcon
+            style={{
+              fontSize: "2.5rem",
+              color: "#68b0ab",
+              marginLeft: "10px",
+              cursor: "pointer",
+              opacity: "0.7",
+            }}
+            onClick={toggleMenu}
+          />
+          <Menu
+            open={Boolean(anchorEl)}
+            anchorEl={anchorEl}
+            onClose={() => setAnchorEl(null)}
+            PaperProps={{ sx: { padding: 0 } }}
           >
-            <Typography
-              textTransform="uppercase"
-              fontWeight="700"
-              sx={{
-                fontSize: { xs: ".7rem", md: "1rem" },
-              }}
+            {menuConfigs.user.map((item, index) => (
+              <ListItemButton
+                component={Link}
+                to={item.path}
+                key={index}
+                onClick={() => setAnchorEl(null)}
+              >
+                <ListItemIcon>{item.icon}</ListItemIcon>
+                <ListItemText
+                  disableTypography
+                  primary={
+                    <Typography textTransform="uppercase">
+                      {item.title}
+                    </Typography>
+                  }
+                />
+              </ListItemButton>
+            ))}
+            <ListItemButton
+              sx={{ borderRadius: "10px" }}
+              onClick={() => dispatch(setUser(null))}
             >
-              sign out
-            </Typography>
-          </Button>
+              <ListItemIcon>
+                <LogoutOutlinedIcon />
+              </ListItemIcon>
+              <ListItemText
+                disableTypography
+                primary={
+                  <Typography textTransform="uppercase">sign out</Typography>
+                }
+              />
+            </ListItemButton>
+          </Menu>
         </>
       )}
     </>

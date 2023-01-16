@@ -5,13 +5,13 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
-import tmdbConfigs from "../api/configs/tmdb.configs";
 import reviewApi from "../api/modules/review.api";
 import Container from "../components/common/Container";
-import uiConfigs from "../configs/ui.configs";
 import { setGlobalLoading } from "../redux/features/globalLoadingSlice";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { routesGen } from "../routes/routes";
+import uiConfigs from "../configs/ui.configs";
+import tmdbConfigs from "../api/configs/tmdb.config";
 
 const ReviewItem = ({ review, onRemoved }) => {
   const [onRequest, setOnRequest] = useState(false);
@@ -125,7 +125,7 @@ const ReviewList = () => {
     };
 
     getReviews();
-  }, []);
+  }, [dispatch]);
 
   const onLoadMore = () => {
     setFilteredReviews([

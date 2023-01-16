@@ -3,6 +3,7 @@ import SlideshowOutlinedIcon from "@mui/icons-material/SlideshowOutlined";
 import LiveTvOutlinedIcon from "@mui/icons-material/LiveTvOutlined";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
+import RateReviewOutlinedIcon from "@mui/icons-material/RateReviewOutlined";
 
 const main = [
   {
@@ -37,6 +38,12 @@ const user = [
     path: "/favourites",
     icon: <FavoriteBorderOutlinedIcon />,
     state: "favourite",
+  },
+  {
+    title: "reviews",
+    path: "/reviews",
+    icon: <RateReviewOutlinedIcon />,
+    state: "reviews",
   },
 ];
 

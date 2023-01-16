@@ -6,7 +6,7 @@ import {
   Box,
   Button,
   IconButton,
-  Typography,
+  Stack,
   Toolbar,
   useScrollTrigger,
 } from "@mui/material";
@@ -136,7 +136,7 @@ const Topbar = () => {
 
             {/* User Favourites Menu */}
 
-            {user && (
+            {/* {user && (
               <Button
                 sx={{
                   // fontWeight: "700",
@@ -154,30 +154,30 @@ const Topbar = () => {
               >
                 Favourites
               </Button>
-            )}
+            )} */}
             {/* End User Favourites */}
 
             {/* User Menu */}
 
-            {!user && (
-              <Button
-                sx={{ backgroundColor: "#4a7c59" }}
-                variant="contained"
-                onClick={() => dispatch(setAuthModalOpen(true))}
-              >
-                <Typography
-                  textTransform="uppercase"
-                  fontWeight="700"
-                  sx={{
-                    fontSize: { xs: ".7rem", md: "1rem" },
-                  }}
-                >
-                  sign in
-                </Typography>
-              </Button>
+            <Stack spacing={3} direction="row" alignItems="center">
+              {!user && (
+                <>
+                  <Button
+                    variant="contained"
+                    onClick={() => dispatch(setAuthModalOpen(true))}
+                  >
+                    sign in
+                  </Button>
+                </>
+              )}
+            </Stack>
+
+            {user && (
+              <>
+                <UserMenu />
+              </>
             )}
 
-            {user && <UserMenu />}
             {/* END User Menu */}
           </Toolbar>
         </AppBar>

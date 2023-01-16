@@ -94,7 +94,7 @@ const FavouriteList = () => {
 
   return (
     <Box sx={{ ...uiConfigs.style.mainContent }}>
-      <Container header={`Your favorites (${count})`}>
+      <Container header={`Your favourites (${count})`}>
         <Grid container spacing={1} sx={{ marginRight: "-8px!important" }}>
           {filteredMedias.map((media, index) => (
             <Grid item xs={6} sm={4} md={3} key={index}>

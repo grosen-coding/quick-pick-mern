@@ -1,10 +1,12 @@
 import express from "express";
-// import cookieParser from "cookie-parser";
-// import cors from "cors";
+import cookieParser from "cookie-parser";
+import cors from "cors";
 import http from "http";
+import colors from "colors";
 import mongoose from "mongoose";
 import "dotenv/config";
 import routes from "./src/routes/index.js";
+const port = process.env.PORT || 3000;
 
 mongoose.set("strictQuery", false);
 
@@ -14,9 +16,9 @@ mongoose
     useUnifiedTopology: true,
   })
   .then(() => {
-    console.log(`Mongo DB Connected!`);
+    console.log(`Mongo DB Connected!`.cyan.underline);
     server.listen(port, () => {
-      console.log(`Server is listening on port ${port}`);
+      console.log(`Server is listening on port ${port}`.green.italic);
     });
   })
   .catch((err) => {
@@ -28,10 +30,10 @@ const app = express();
 
 // console.log(process.env);
 
-// app.use(cors());
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-// app.use(cookieParser());
+app.use(cookieParser());
 
 app.use("/api/v1", routes);
 
@@ -39,16 +41,14 @@ app.use("/api/v1", routes);
 const server = http.createServer(app);
 
 // Serve frontend
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "../frontend/build")));
+// if (process.env.NODE_ENV === "production") {
+//   app.use(express.static(path.join(__dirname, "../frontend/build")));
 
-  app.get("*", (req, res) =>
-    res.sendFile(
-      path.resolve(__dirname, "../", "frontend", "build", "index.html")
-    )
-  );
-} else {
-  app.get("/", (req, res) => res.send("Please set to production"));
-}
-
-const port = process.env.PORT || 3000;
+//   app.get("*", (req, res) =>
+//     res.sendFile(
+//       path.resolve(__dirname, "../", "frontend", "build", "index.html")
+//     )
+//   );
+// } else {
+//   app.get("/", (req, res) => res.send("Please set to production"));
+// }

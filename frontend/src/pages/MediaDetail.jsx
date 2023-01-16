@@ -289,6 +289,7 @@ const MediaDetail = () => {
           </Box>
         </Box>
         {/* media content */}
+
         <div ref={videoRef} style={{ paddingTop: "2rem" }}>
           <Container header="Trailers & Videos">
             <MediaVideosSlide videos={[...media.videos.results].splice(0, 5)} />

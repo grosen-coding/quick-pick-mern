@@ -1,8 +1,6 @@
 import React from "react";
 import { Button, Typography } from "@mui/material";
-
 import { useDispatch, useSelector } from "react-redux";
-
 import { setUser } from "../../redux/features/userSlice";
 
 const UserMenu = () => {

@@ -102,16 +102,7 @@ const Topbar = () => {
               alignItems="center"
               display={{ xs: "none", md: "flex" }}
             >
-              <Box
-                sx={{
-                  padding: "0",
-                  margin: "0",
-                  // height: "50px",
-                  width: "30%",
-                  // border: "1px solid red",
-                  lineHeight: "0",
-                }}
-              >
+              <Box mr={2}>
                 <Logo />
               </Box>
               <ButtonContainer>
@@ -148,13 +139,15 @@ const Topbar = () => {
             {user && (
               <Button
                 sx={{
-                  fontWeight: "700",
-                  letterSpacing: "1px",
-                  fontSize: { xs: ".5rem", md: "1.3rem" },
-                  display: { xs: "none", md: "none" },
+                  // fontWeight: "700",
+                  // letterSpacing: "1px",
+                  fontSize: { xs: ".5rem", md: "1.1rem" },
+                  display: { xs: "none", md: "flex" },
+                  width: "auto",
+                  padding: "5px 10px",
+                  color: "#e2e2e2",
                   mr: 4,
-                  // border: "1px solid green",
-                  padding: "5px 15px",
+                  backgroundColor: "#4a7c59",
                 }}
                 component={Link}
                 to={"/favourites"}

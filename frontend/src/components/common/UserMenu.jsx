@@ -28,22 +28,18 @@ const UserMenu = () => {
         <>
           <Typography
             variant="h6"
-            sx={{ cursor: "pointer", userSelect: "none" }}
+            sx={{ userSelect: "none", color: "#c8d5b9" }}
             // onClick={toggleMenu}
           >
             {user.displayName}
           </Typography>
           <ArrowDropDownCircleIcon
-            style={{
-              fontSize: "2.5rem",
-              color: "#68b0ab",
-              marginLeft: "10px",
-              cursor: "pointer",
-              opacity: "0.7",
-            }}
+            className="user-circle"
+            style={{}}
             onClick={toggleMenu}
           />
           <Menu
+            sx={{ marginTop: "10px" }}
             open={Boolean(anchorEl)}
             anchorEl={anchorEl}
             onClose={() => setAnchorEl(null)}
@@ -56,7 +52,13 @@ const UserMenu = () => {
                 key={index}
                 onClick={() => setAnchorEl(null)}
               >
-                <ListItemIcon>{item.icon}</ListItemIcon>
+                <ListItemIcon
+                  style={{
+                    color: "#68b0ab",
+                  }}
+                >
+                  {item.icon}
+                </ListItemIcon>
                 <ListItemText
                   disableTypography
                   primary={
@@ -72,7 +74,11 @@ const UserMenu = () => {
               onClick={() => dispatch(setUser(null))}
             >
               <ListItemIcon>
-                <LogoutOutlinedIcon />
+                <LogoutOutlinedIcon
+                  style={{
+                    color: "#68b0ab",
+                  }}
+                />
               </ListItemIcon>
               <ListItemText
                 disableTypography

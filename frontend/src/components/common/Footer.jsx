@@ -49,6 +49,7 @@ const FooterContainer = styled.div`
 `;
 
 const TMDBImg = styled.img`
-  width: 20%;
+  width: 150px;
+  padding: 10px 0;
   height: 100%;
 `;

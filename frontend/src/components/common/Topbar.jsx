@@ -83,6 +83,7 @@ const Topbar = () => {
               sx={{
                 mr: 2,
                 display: { md: "none" },
+                ml: 2,
                 position: "relative",
                 zIndex: "10000000",
               }}
@@ -158,27 +159,28 @@ const Topbar = () => {
             {/* End User Favourites */}
 
             {/* User Menu */}
+            <UserWrap>
+              <Stack spacing={3} direction="row" alignItems="center">
+                {!user && (
+                  <>
+                    <Button
+                      variant="contained"
+                      onClick={() => dispatch(setAuthModalOpen(true))}
+                    >
+                      sign in
+                    </Button>
+                  </>
+                )}
+              </Stack>
 
-            <Stack spacing={3} direction="row" alignItems="center">
-              {!user && (
+              {user && (
                 <>
-                  <Button
-                    variant="contained"
-                    onClick={() => dispatch(setAuthModalOpen(true))}
-                  >
-                    sign in
-                  </Button>
+                  <UserMenu />
                 </>
               )}
-            </Stack>
 
-            {user && (
-              <>
-                <UserMenu />
-              </>
-            )}
-
-            {/* END User Menu */}
+              {/* END User Menu */}
+            </UserWrap>
           </Toolbar>
         </AppBar>
       </ScrollAppBar>
@@ -193,4 +195,25 @@ const ButtonContainer = styled.div`
   display: flex;
   justify-content: center;
   margin: 0 30px;
+`;
+
+const UserWrap = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .user-circle {
+    font-size: 2.5rem;
+    color: #68b0ab;
+    margin-left: 10px;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: 0.25s;
+    margin-right: 10px;
+    &:hover {
+      opacity: 1;
+      transform: scale(1.1);
+      transition: 0.25s;
+    }
+  }
 `;

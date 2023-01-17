@@ -52,10 +52,10 @@ const MainLayout = () => {
         display="flex"
         minHeight="100%"
         // border="1px solid blue"
-        width="1500px"
-        maxWidth="100%"
-        margin=" 65px auto 0"
-        padding="25px"
+        // width="1500px"
+        // maxWidth="100%"
+        // margin=" 65px auto 0"
+        // padding="25px"
       >
         {/* header */}
         <Topbar />

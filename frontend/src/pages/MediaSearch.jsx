@@ -67,7 +67,7 @@ const MediaSearch = () => {
             spacing={2}
             direction="row"
             justifyContent="center"
-            sx={{ width: "100%" }}
+            sx={{ width: "100%", marginTop: "10rem" }}
           >
             {mediaTypes.map((item, index) => (
               <Button

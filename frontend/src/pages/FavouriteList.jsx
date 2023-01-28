@@ -1,7 +1,8 @@
+import { useEffect, useState } from "react";
+import { Modal } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { LoadingButton } from "@mui/lab";
-import { Box, Button, Grid } from "@mui/material";
-import { useEffect, useState } from "react";
+import { Box, Button, Grid, Typography } from "@mui/material";
 import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import MediaItem from "../components/common/MediaItem";
@@ -56,6 +57,11 @@ const FavouriteList = () => {
   const [page, setPage] = useState(1);
   const [count, setCount] = useState(0);
 
+  // Random Favourite
+  const [randomSelection, setRandomSelection] = useState(null);
+  const [open, setOpen] = useState(false);
+  // Random Favoutite
+
   const dispatch = useDispatch();
 
   const skip = 8;
@@ -92,9 +98,133 @@ const FavouriteList = () => {
     setCount(count - 1);
   };
 
+  // Random Favourite
+  const handleOpen = () => {
+    setOpen(true);
+    setRandomSelection(
+      filteredMedias[Math.floor(Math.random() * filteredMedias.length)]
+    );
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+    setRandomSelection(null);
+    setRandomSelection2(null);
+  };
+
+  // Random Favourite
+
+  // Pick again
+  const [randomSelection2, setRandomSelection2] = useState(null);
+  const handleOpen2 = () => {
+    setRandomSelection(null);
+    setOpen(true);
+    setRandomSelection2(
+      filteredMedias[Math.floor(Math.random() * filteredMedias.length)]
+    );
+  };
+  // Pick again
+
   return (
     <Box sx={{ ...uiConfigs.style.mainContent }}>
       <Container header={`Your favourites (${count})`}>
+        <Typography
+          variant="h4"
+          fontWeight="700"
+          color="#68b0ab"
+          textAlign="center"
+        >
+          Can't Decide What to Watch??...
+        </Typography>
+        {/* Random Favourite */}
+        <Button
+          onClick={handleOpen}
+          sx={{
+            width: "auto",
+            backgroundColor: "#c8d5b9",
+            color: "#333",
+            alignSelf: "center",
+            fontWeight: 800,
+            fontSize: "1.2rem",
+          }}
+        >
+          Try a RANDOM &nbsp;
+          <span style={{ color: "#4a7c59" }}> Quick Pick!</span>
+        </Button>
+        <Modal open={open} onClose={handleClose}>
+          <Box
+            sx={{
+              position: "relative",
+              width: "100vw",
+              height: "100vh",
+              backgroundColor: "rgba(0,0,0,0.8)",
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
+            <Box
+              sx={{
+                position: "absolute",
+                top: "50%",
+                transform: "translateY(-50%)",
+                width: { xs: "80%", md: "40%" },
+                // height: "50%",
+                backgroundColor: "#68b0ab",
+                padding: "5rem 3rem 3rem",
+                borderRadius: "10px",
+              }}
+            >
+              <Button
+                onClick={handleOpen2}
+                sx={{
+                  position: "absolute",
+                  top: "20px",
+                  left: "20px",
+                  backgroundColor: "#c8d5b9",
+                  color: "#333",
+                  fontWeight: 800,
+
+                  "&:hover": {
+                    backgroundColor: "#faf3dd",
+                  },
+                }}
+              >
+                Choose Again
+              </Button>
+              <Button
+                onClick={handleClose}
+                sx={{
+                  position: "absolute",
+                  top: "20px",
+                  right: "20px",
+                  backgroundColor: "#c8d5b9",
+                  color: "#333",
+                  fontWeight: 800,
+
+                  "&:hover": {
+                    backgroundColor: "#faf3dd",
+                  },
+                }}
+              >
+                Close
+              </Button>
+              {randomSelection && (
+                <MediaItem
+                  media={randomSelection}
+                  mediaType={randomSelection.mediaType}
+                />
+              )}
+              {randomSelection2 && (
+                <MediaItem
+                  media={randomSelection2}
+                  mediaType={randomSelection2.mediaType}
+                />
+              )}
+            </Box>
+          </Box>
+        </Modal>
+        {/* Random Favourite */}
+
         <Grid container spacing={1} sx={{ marginRight: "-8px!important" }}>
           {filteredMedias.map((media, index) => (
             <Grid item xs={6} sm={4} md={3} key={index}>

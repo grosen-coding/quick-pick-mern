@@ -8,6 +8,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MainLayout from "./components/layout/MainLayout";
 import PageWrapper from "./components/common/PageWrapper";
 import routes from "./routes/routes";
+// import LandingPage from "./components/layout/LandingPage";
 
 // Toastify native styling
 import "react-toastify/dist/ReactToastify.css";
@@ -40,6 +41,8 @@ const App = () => {
       {/* App Routes */}
       <BrowserRouter>
         <Routes>
+          {/* <Route path="/" element={<LandingPage />}> */}
+
           <Route path="/" element={<MainLayout />}>
             {routes.map((route, index) =>
               route.index ? (

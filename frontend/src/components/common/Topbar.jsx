@@ -135,29 +135,6 @@ const Topbar = () => {
             </Box>
             {/* End Main Menu */}
 
-            {/* User Favourites Menu */}
-
-            {/* {user && (
-              <Button
-                sx={{
-                  // fontWeight: "700",
-                  // letterSpacing: "1px",
-                  fontSize: { xs: ".5rem", md: "1.1rem" },
-                  display: { xs: "none", md: "flex" },
-                  width: "auto",
-                  padding: "5px 10px",
-                  color: "#e2e2e2",
-                  mr: 4,
-                  backgroundColor: "#4a7c59",
-                }}
-                component={Link}
-                to={"/favourites"}
-              >
-                Favourites
-              </Button>
-            )} */}
-            {/* End User Favourites */}
-
             {/* User Menu */}
             <UserWrap>
               <Stack spacing={3} direction="row" alignItems="center">

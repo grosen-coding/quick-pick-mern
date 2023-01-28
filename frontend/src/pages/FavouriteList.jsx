@@ -11,6 +11,7 @@ import uiConfigs from "../configs/ui.configs";
 import favouriteAPI from "../api/modules/favourite.api";
 import { setGlobalLoading } from "../redux/features/globalLoadingSlice";
 import { removeFavourite } from "../redux/features/userSlice";
+import Typed from "react-typed";
 
 const FavouriteItem = ({ media, onRemoved }) => {
   const dispatch = useDispatch();
@@ -142,6 +143,7 @@ const FavouriteList = () => {
           fontWeight="700"
           color="#68b0ab"
           textAlign="center"
+          marginTop="50px !important"
         >
           Can't Decide What to Watch??...
         </Typography>
@@ -150,14 +152,20 @@ const FavouriteList = () => {
         <Button
           onClick={handleOpen}
           sx={{
-            width: "400px",
-            height: "'300px",
+            width: { xs: "90%", sm: "40%", md: "50%" },
+            // height: "300px",
             backgroundColor: "#c8d5b9",
             color: "#333",
-            margin: "0 auto",
+            // margin: "4rem auto",
             alignSelf: "center",
             fontWeight: 800,
-            fontSize: "1.2rem",
+            fontSize: { xs: "1rem", sm: "1.2rem", md: "1.5rem" },
+            margin: "50px 0 !important",
+
+            "&:hover": {
+              backgroundColor: "#c8d5b9",
+              opacity: "0.7",
+            },
           }}
         >
           Try a RANDOM &nbsp;

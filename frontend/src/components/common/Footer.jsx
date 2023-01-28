@@ -16,7 +16,7 @@ const Footer = () => {
             justifyContent="space-between"
             direction={{ xs: "column", md: "row " }}
           >
-            <Logo />
+            <Logo size={"2rem"} />
 
             <Box>
               {menuConfigs.main.map((item, index) => (

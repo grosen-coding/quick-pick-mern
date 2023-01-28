@@ -1,17 +1,28 @@
-import { useTheme } from "@mui/material";
+import { Typography, useTheme } from "@mui/material";
 
-const Logo = () => {
+const Logo = ({ size }) => {
   const theme = useTheme();
 
   return (
-    <h2 fontWeight="700" style={{ fontSize: "1.8rem", color: "#c8d5b9" }}>
+    <Typography
+      variant="h2"
+      fontWeight="700"
+      fontSize={size}
+      style={{
+        color: "#c8d5b9",
+        opacity: "0.7",
+        display: "inline-flex",
+      }}
+    >
       Quick{" "}
       <span
         style={{
           color: theme.palette.primary.main,
-          opacity: 1,
+          opacity: 0.8,
           letterSpacing: "1.5px",
-          fontSize: "2rem",
+          padding: "0 0.5rem",
+          // fontSize: "2rem",
+
           // marginLeft: "50px",
           // fontWeight: "700",
         }}
@@ -19,7 +30,7 @@ const Logo = () => {
         FLICK{" "}
       </span>
       Picker
-    </h2>
+    </Typography>
   );
 };
 

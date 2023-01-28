@@ -29,7 +29,7 @@ const Sidebar = ({ open, toggleSidebar }) => {
     <>
       <Toolbar sx={{ paddingY: "20px", color: "text.primary" }}>
         <Stack width="100%" direction="row" justifyContent="center">
-          <Logo />
+          <Logo size={{ xs: "1.5rem" }} />
         </Stack>
       </Toolbar>
       <List sx={{ paddingX: "30px" }}>

@@ -38,14 +38,15 @@ const GlobalLoading = () => {
             position: "absolute",
             top: "50%",
             left: "50%",
-            width: "280px",
+            textAlign: "center",
+            width: { xs: "100%", md: "50%", lg: "20%" },
             transform: {
               xs: "translate(-50%, -50%) scale(0.9)",
               md: "translate(-50%, -50%) scale(2.5)",
             },
           }}
         >
-          <Logo />
+          <Logo size={"2rem"} />
         </Box>
       </Paper>
     </>

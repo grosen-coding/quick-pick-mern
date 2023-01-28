@@ -1,4 +1,6 @@
 import React from "react";
+import SimpleModal from "../common/InitialLoadModal";
+
 import { Outlet } from "react-router-dom";
 import GlobalLoading from "../common/GlobalLoading";
 import Footer from "../common/Footer";
@@ -44,19 +46,14 @@ const MainLayout = () => {
     <>
       <GlobalLoading />
 
+      <SimpleModal />
+
+      {/* Login Modal */}
+
       {/* Login Modal */}
       <AuthModal />
 
-      <Box
-        className="menu"
-        display="flex"
-        minHeight="100%"
-        // border="1px solid blue"
-        // width="1500px"
-        // maxWidth="100%"
-        // margin=" 65px auto 0"
-        // padding="25px"
-      >
+      <Box className="menu" display="flex" minHeight="100%">
         {/* header */}
         <Topbar />
         {/* header */}

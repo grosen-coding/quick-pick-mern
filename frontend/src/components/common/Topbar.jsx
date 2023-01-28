@@ -104,7 +104,7 @@ const Topbar = () => {
               display={{ xs: "none", md: "flex" }}
             >
               <Box mr={2}>
-                <Logo />
+                <Logo size={"2rem"} />
               </Box>
               <ButtonContainer>
                 {menuConfigs.main.map((item, index) => (
@@ -168,7 +168,7 @@ const Topbar = () => {
 export default Topbar;
 
 const ButtonContainer = styled.div`
-  width: 50%;
+  width: 55%;
   display: flex;
   justify-content: center;
   margin: 0 30px;

@@ -51,7 +51,7 @@ const AuthModal = () => {
           }}
         >
           <Box sx={{ textAlign: "center", marginBottom: "2rem" }}>
-            <Logo />
+            <Logo size={{ xs: "1.3rem", sm: "2rem" }} />
           </Box>
 
           {action === actionState.signIn && (

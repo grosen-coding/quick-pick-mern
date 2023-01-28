@@ -58,8 +58,7 @@ const FavouriteList = () => {
   const [count, setCount] = useState(0);
 
   // Random Favourite
-
-  const [selectedMedia, setSelectedMedia] = useState(null);
+  const [randomSelection, setRandomSelection] = useState(null);
   const [open, setOpen] = useState(false);
   // Random Favoutite
 
@@ -78,7 +77,7 @@ const FavouriteList = () => {
         setCount(response.length);
         setMedias([...response]);
 
-        // console.log([...response]);
+        console.log([...response]);
 
         setFilteredMedias([...response].splice(0, skip));
       }
@@ -87,7 +86,7 @@ const FavouriteList = () => {
     getFavourites();
   }, [dispatch]);
 
-  // console.log(medias);
+  console.log(medias);
 
   const onLoadMore = () => {
     setFilteredMedias([
@@ -106,36 +105,36 @@ const FavouriteList = () => {
 
   // Random Favourite
   const handleOpen = () => {
-    const randomIndex = Math.floor(Math.random() * medias.length);
-    setSelectedMedia(medias[randomIndex]);
     setOpen(true);
+    setRandomSelection(
+      filteredMedias[Math.floor(Math.random() * filteredMedias.length)]
+    );
   };
 
   const handleClose = () => {
     setOpen(false);
-    setSelectedMedia(null);
+    setRandomSelection(null);
+    setRandomSelection2(null);
   };
 
   // Random Favourite
 
   // Pick again
-  const [newPick, setNewPick] = useState(null);
-  const pickAgain = () => {
-    setSelectedMedia(null);
-    const randomIndex = Math.floor(Math.random() * medias.length);
-    setNewPick(setSelectedMedia(medias[randomIndex]));
+  const [randomSelection2, setRandomSelection2] = useState(null);
+  const handleOpen2 = () => {
+    setRandomSelection(null);
+    setOpen(true);
+    setRandomSelection2(
+      filteredMedias[Math.floor(Math.random() * filteredMedias.length)]
+    );
   };
   // Pick again
-
-  // console.log(medias);
-
-  // console.log(selectedMedia);
 
   return (
     <Box sx={{ ...uiConfigs.style.mainContent }}>
       <Container header={`Your favourites (${count})`}>
-        {/* Filter by Genre */}
-        {/* Filter by Genre */}
+        {/* Filter by Category */}
+        {/* Filter by Category */}
 
         <Typography
           variant="h4"
@@ -145,16 +144,13 @@ const FavouriteList = () => {
         >
           Can't Decide What to Watch??...
         </Typography>
-
         {/* Random Favourite */}
         <Button
           onClick={handleOpen}
           sx={{
-            width: "400px",
-            height: "'300px",
+            width: "auto",
             backgroundColor: "#c8d5b9",
             color: "#333",
-            margin: "0 auto",
             alignSelf: "center",
             fontWeight: 800,
             fontSize: "1.2rem",
@@ -187,7 +183,7 @@ const FavouriteList = () => {
               }}
             >
               <Button
-                onClick={pickAgain}
+                onClick={handleOpen2}
                 sx={{
                   position: "absolute",
                   top: "20px",
@@ -220,16 +216,16 @@ const FavouriteList = () => {
               >
                 Close
               </Button>
-              {selectedMedia && (
+              {randomSelection && (
                 <MediaItem
-                  media={selectedMedia}
-                  mediaType={selectedMedia.mediaType}
+                  media={randomSelection}
+                  mediaType={randomSelection.mediaType}
                 />
               )}
-              {newPick && (
+              {randomSelection2 && (
                 <MediaItem
-                  media={selectedMedia}
-                  mediaType={selectedMedia.mediaType}
+                  media={randomSelection2}
+                  mediaType={randomSelection2.mediaType}
                 />
               )}
             </Box>

@@ -167,7 +167,7 @@ const FavouriteList = () => {
                 position: "absolute",
                 top: "50%",
                 transform: "translateY(-50%)",
-                width: { xs: "80%", md: "40%" },
+                width: { xs: "80%", sm: "50%", md: "40%", lg: "25%" },
                 // height: "50%",
                 backgroundColor: "#68b0ab",
                 padding: "5rem 3rem 3rem",

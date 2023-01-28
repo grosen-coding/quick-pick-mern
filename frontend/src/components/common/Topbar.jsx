@@ -24,7 +24,8 @@ const ScrollAppBar = ({ children, window }) => {
   const { themeMode } = useSelector((state) => state.themeMode);
   const trigger = useScrollTrigger({
     disableHysteresis: true,
-    threshold: 50,
+    threshold: 5,
+    // transition: "0.3s",
     target: window ? window() : undefined,
   });
 
@@ -67,14 +68,13 @@ const Topbar = () => {
             sx={{
               alignItems: "center",
               justifyContent: "space-between",
-              maxHeight: "70px",
+              maxHeight: "80px",
               height: "100%",
               padding: " 20px 0",
-              // backgroundColor: "lightblue",
               maxWidth: "1500px",
               margin: "0 auto",
               width: "100%",
-              // border: "1px solid red",
+              // transition: "0.4s !important",
             }}
           >
             {/* <Stack direction="row" spacing={1} alignItems="center"> */}

@@ -39,7 +39,16 @@ const app = express();
 
 // console.log(process.env);
 
-app.use(cors());
+const cors = require("cors");
+
+// Configure CORS middleware
+const corsOptions = {
+  origin: "https://quick-flick-picker.herokuapp.com",
+  optionsSuccessStatus: 200,
+};
+
+app.use(cors(corsOptions));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());

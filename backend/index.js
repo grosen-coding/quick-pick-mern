@@ -1,7 +1,7 @@
 import express from "express";
 import cookieParser from "cookie-parser";
 import cors from "cors";
-// import http from "http";
+//import http from "http";
 import colors from "colors";
 import path from "path";
 import mongoose from "mongoose";
@@ -38,6 +38,13 @@ mongoose
 const app = express();
 
 // console.log(process.env);
+
+// const corsOptions = {
+//   origin: "https://quick-flick-picker.herokuapp.com",
+//   optionsSuccessStatus: 200,
+// };
+
+// app.use(cors(corsOptions));
 
 app.use(cors());
 app.use(express.json());
